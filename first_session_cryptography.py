@@ -10,7 +10,6 @@ class CaesarCipher:
         encrypted_text = ""
 
         key_order = ord(key.lower()) - self.LOWER_CASE_ORDER
-        print(key_order)
         for i in range(len(plain_text)):
             char_from_text = plain_text[i]
             order_of_char = ord(char_from_text) - self.LOWER_CASE_ORDER
@@ -22,7 +21,6 @@ class CaesarCipher:
         decrypted_text = ""
 
         key_order = ord(key.upper()) - self.UPPER_CASE_ORDER
-        print(key_order)
         for i in range(len(encrypted_text)):
             char_from_text = encrypted_text[i]
             order_of_char = ord(char_from_text) - self.UPPER_CASE_ORDER
