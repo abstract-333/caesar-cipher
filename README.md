@@ -1,7 +1,7 @@
-#first_session -> CaesarCipher
+##first_session -> CaesarCipher
 <br>
-#first_session -> Euclidean
+##first_session -> Euclidean
 <br>
-#first_session -> MultiplicativeCipher &&  AffineCipher
+##first_session -> MultiplicativeCipher &&  AffineCipher
 <br>
-#first_session -> AutoKey && Vigener"
+##first_session -> AutoKey && Vigener"
