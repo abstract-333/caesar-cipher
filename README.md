@@ -1,8 +1,10 @@
 # Cryptography Sessions
 first_session -> CaesarCipher
 <br>
-first_session -> Euclidean
+second_session -> Euclidean
 <br>
-first_session -> MultiplicativeCipher &&  AffineCipher
+third_session -> MultiplicativeCipher &&  AffineCipher
 <br>
-first_session -> AutoKey && Vigener"
+fourth_session -> AutoKey && Vigener
+<br>
+fifth_session -> Playfair && ADFGVX
