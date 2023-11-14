@@ -9,8 +9,6 @@ k2 = "hallowen"  # ADFGVX
 k3 = "night"
 r2 = "GDAAFAGADDXGAGA"
 
-import numpy as np
-
 
 # معالجة النص الأصلي في Playfair
 # التشفير باستخدام ADFGVX
@@ -113,8 +111,8 @@ play_fair = PlayFair()
 adfgvx = ADFGVX()
 key_matrix = play_fair.constructKeyMatrix("moon")
 filtered_text = play_fair.handlingPlainText("some sasy")
-result = adfgvx.encrypt(p2, k2, k3) == r2
-# result = adfgvx.encrypt("COMPUTER", "orange", "rinad")
+result = adfgvx.encrypt(p2, k2, k3)
+# result = adfgvx.encrypt(p2, k2, "rinad")
 # result = adfgvx.constructKeyMartix("orange")
 print(f"{filtered_text=}")
 print(f"{key_matrix=}")
