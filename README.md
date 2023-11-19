@@ -9,4 +9,4 @@ fourth_session -> AutoKey && Vigener
 <br>
 fifth_session -> Playfair && ADFGVX
 <br>
-sixth_session -> RC4
+sixth_session -> RC4 && binary derivative && binary derivative
