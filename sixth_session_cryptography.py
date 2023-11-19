@@ -1,4 +1,6 @@
 # طول المفتاح متغير في خوارزمية RC4
+import math
+
 key1 = [1, 2, 3, 6]
 p = [1, 2, 2, 2]
 key_size1 = 8
@@ -41,8 +43,60 @@ class RC4:
         return encrypted_text
 
 
+class RC4Analyzing:
+    @classmethod
+    def convert_bin(cls, list_numbers: list[int]) -> str:
+        numbers_binary: bin = ""
+        for number in list_numbers:
+            binary_value = format(number, "03b")
+            numbers_binary += binary_value
+        return numbers_binary
+
+    def change_point_test(self, list_numbers: list[int]) -> (int, float):
+        numbers_binary: bin = self.convert_bin(list_numbers)
+        print(numbers_binary)
+        max_value: float = 0
+        len_binary: int = len(numbers_binary)
+        count_ones_in_binary = numbers_binary.count("1")
+        for index_bin in range(1, len_binary):
+            max_value = max(
+                max_value,
+                abs(
+                    len_binary * numbers_binary[: index_bin + 1].count("1")
+                    - index_bin * count_ones_in_binary
+                ),
+            )
+        coefficient: float = (-2 * max_value**2) / (
+            len_binary * count_ones_in_binary * (len_binary - count_ones_in_binary)
+        )
+
+        return max_value, math.exp(coefficient)
+
+    def binary_derivative_test(self, list_numbers: list[int]):
+        numbers_binary: bin = self.convert_bin(list_numbers)
+        print(numbers_binary)
+        len_binary: int = len(numbers_binary)
+        binary_derived: bin = numbers_binary
+        for index in range(len_binary - 1):
+            temp_binary: bin = ""
+            for binary_index in range(1, len(binary_derived)):
+                temp_binary += bin(
+                    int(binary_derived[binary_index], 2)
+                    ^ int(binary_derived[binary_index - 1], 2)
+                )[2:]
+            binary_derived = temp_binary
+            print(f"{temp_binary=}, {index=}")
+            print(temp_binary.count("1") / (len_binary - index))
+            print("*" * 20)
+
+
 rc4 = RC4(8)
 result_key = rc4.generateKeyStream(key1)
 print(f"{result_key=}")
-result = rc4.encrypt(plain_text=p, key=result_key)
+RC4_result = rc4.encrypt(plain_text=p, key=result_key)
+print(f"{RC4_result=}")
+change_point = RC4Analyzing().change_point_test(RC4_result)
+binary_derivative_test = RC4Analyzing().binary_derivative_test(RC4_result)
+print(f"{change_point=}")
+result = rc4.encrypt(plain_text=p, key=RC4_result)
 print(f"{result=}")
