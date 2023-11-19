@@ -8,3 +8,5 @@ third_session -> MultiplicativeCipher &&  AffineCipher
 fourth_session -> AutoKey && Vigener
 <br>
 fifth_session -> Playfair && ADFGVX
+<br>
+sixth_session -> RC4
