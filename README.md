@@ -9,4 +9,4 @@ fourth_session -> AutoKey && Vigener
 <br>
 fifth_session -> Playfair && ADFGVX
 <br>
-sixth_session -> RC4 && change point, binary derivative tests
+sixth_session -> RC4 && change point, binary derivative analyzing process
