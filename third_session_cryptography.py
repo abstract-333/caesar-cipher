@@ -13,7 +13,7 @@ class MultiplicativeCipher:
         if self.euclidean.basic_euclidean(key, 26) != 1:
             return None
 
-        encrypted_text: str = ''
+        encrypted_text: str = ""
         for char in plain_text:
             order_of_char = ord(char) - self.LOWER_CASE_ORDER
             encrypted_text += chr((order_of_char * key) % 26 + self.UPPER_CASE_ORDER)
@@ -24,11 +24,13 @@ class MultiplicativeCipher:
         if self.euclidean.basic_euclidean(key, 26) != 1:
             return None
 
-        decrypted_text: str = ''
+        decrypted_text: str = ""
         for char in encrypted_text:
             order_of_char = ord(char) - self.UPPER_CASE_ORDER
             decrypted_text += chr(
-                (order_of_char * self.euclidean.extended_euclidean(key, 26)) % 26 + self.LOWER_CASE_ORDER)
+                (order_of_char * self.euclidean.extended_euclidean(key, 26)) % 26
+                + self.LOWER_CASE_ORDER
+            )
 
         return decrypted_text
 
@@ -38,7 +40,9 @@ class AffineCipher:
     multiplicative_cipher = MultiplicativeCipher()
 
     def encrypt(self, plain_text: str, key_mult: int, key_add: int) -> str | None:
-        encrypted_text_mult = self.multiplicative_cipher.encrypt(plain_text=plain_text, key=key_mult)
+        encrypted_text_mult = self.multiplicative_cipher.encrypt(
+            plain_text=plain_text, key=key_mult
+        )
         if encrypted_text_mult is not None:
             return self.caesar_cipher.encrypt(encrypted_text_mult, key_add)
 
@@ -46,7 +50,9 @@ class AffineCipher:
 
     def decrypt(self, encrypted_text: str, key_mult: int, key_add: int) -> str | None:
         decrypted_text_add = self.caesar_cipher.decrypt(encrypted_text, key_add)
-        decrypted_text_mult = self.multiplicative_cipher.decrypt(decrypted_text_add, key_mult)
+        decrypted_text_mult = self.multiplicative_cipher.decrypt(
+            decrypted_text_add, key_mult
+        )
         if decrypted_text_mult is not None:
             return decrypted_text_mult
 
@@ -71,17 +77,25 @@ while True:
             for key_attempt in range(25):
                 if Euclidean().basic_euclidean(key_attempt, 26) != 1:
                     continue
-                print(multiplicative_cipher.decrypt(encrypted_text=text, key=key_attempt))
+                print(
+                    multiplicative_cipher.decrypt(encrypted_text=text, key=key_attempt)
+                )
         else:
             for key_attempt_add in range(25):
                 for key_attempt_mult in range(25):
                     if Euclidean().basic_euclidean(key_attempt_mult, 26) != 1:
                         continue
 
-                    print(affine_cipher.decrypt(text, key_mult=key_attempt_mult, key_add=key_attempt_add))
+                    print(
+                        affine_cipher.decrypt(
+                            text, key_mult=key_attempt_mult, key_add=key_attempt_add
+                        )
+                    )
 
     else:
-        print("Enter text, if you enter it in lowercase I will encrypt the text otherwise I will decrypt it")
+        print(
+            "Enter text, if you enter it in lowercase I will encrypt the text otherwise I will decrypt it"
+        )
         text: str = input()
         print("Enter Key")
         key: int = int(input())
