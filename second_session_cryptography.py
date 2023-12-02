@@ -24,5 +24,7 @@ class Euclidean:
 
 
 euclidean = Euclidean()
+print(f"{euclidean.basic_euclidean(11, 26)}")
+print(f"{euclidean.extended_euclidean(11, 26)}")
 # print(euclidean.extended_euclidean(7, 26))
 # print(euclidean.basic_euclidean(26, 7))
