@@ -13,4 +13,4 @@ sixth_session -> RC4 && change point, binary derivative analyzing process
 <br>
 seventh_session -> Feistel cipher && StraightPBox
 <br>
-eight_session -> Generating DES subkeys
+eighth_session -> Generating DES subkeys
