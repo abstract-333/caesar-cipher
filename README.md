@@ -10,3 +10,5 @@ fourth_session -> AutoKey && Vigener
 fifth_session -> Playfair && ADFGVX
 <br>
 sixth_session -> RC4 && change point, binary derivative analyzing process
+<br>
+seventh_session -> Feistel cipher && StraightPBox
