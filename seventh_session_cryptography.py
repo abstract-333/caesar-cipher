@@ -124,7 +124,7 @@ class Feistel:
 
 print(f"{Feistel().encrypt(plain_text='1011')=}")
 print("#" * 100)
-test_box = [4, 3, 2, 1, 6, 7, 8, 5]
+test_box = [3, 4, 6, 5, 1, 2]
 test_box1 = [0, 2, 3, 1]
 box1 = StraightPBox(test_box)
 encoded_list = box1.encode([1, 0, 0, 1, 0, 1, 1, 1])
