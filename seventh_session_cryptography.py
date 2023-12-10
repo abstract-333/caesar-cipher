@@ -113,24 +113,22 @@ class Feistel:
         right_block: bin = plain_text[plain_text_len >> 1 : plain_text_len]
 
         for iteration in range(16):
-            if iteration % 2 == 0:
-                left_block = cls.xor(left_block, cls.function(right_block))
-
-            else:
-                right_block = cls.xor(cls.function(left_block), right_block)
+            left_block_temp: bin = cls.function(right_block)
+            right_block = cls.xor(left_block, left_block_temp)
+            left_block = left_block_temp
 
         return left_block + right_block
 
 
 print(f"{Feistel().encrypt(plain_text='1011')=}")
-print("#" * 100)
-test_box = [3, 4, 6, 5, 1, 2]
-test_box1 = [0, 2, 3, 1]
-box1 = StraightPBox(test_box)
-encoded_list = box1.encode([1, 0, 0, 1, 0, 1, 1, 1])
-print(f"{encoded_list=}")
-print("#" * 100)
-print(f"{box1.inverted_box=}")
-box2 = StraightPBox(test_box1)
-print("#" * 100)
-print(f"{box2.inverted_box=}")
+# print("#" * 100)
+# test_box = [3, 4, 6, 5, 1, 2]
+# test_box1 = [0, 2, 3, 1]
+# box1 = StraightPBox(test_box)
+# encoded_list = box1.encode([1, 0, 0, 1, 0, 1, 1, 1])
+# print(f"{encoded_list=}")
+# print("#" * 100)
+# print(f"{box1.inverted_box=}")
+# box2 = StraightPBox(test_box1)
+# print("#" * 100)
+# print(f"{box2.inverted_box=}")
