@@ -28,6 +28,7 @@ last digit is 0 then, left shift <<
 
 
 """
+import random
 
 
 class Gf28:
