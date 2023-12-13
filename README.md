@@ -16,3 +16,5 @@ seventh_session -> Feistel cipher && StraightPBox
 eighth_session -> Generating DES subkeys
 <br>
 ninth_session -> Gf(2^8) && shift rows in AES
+<br>
+tenth_session -> Knapsack Cipher
